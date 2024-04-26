@@ -44,7 +44,8 @@ class SubjectController extends Controller
             if($subject){
                 return response()->json([
                     'status'=> 200,
-                    'message'=> "Subject added successfully"
+                    'message'=> "Subject added successfully",
+                    'subject' => $subject
                     ], 200);
             }else{
                 return response()->json([

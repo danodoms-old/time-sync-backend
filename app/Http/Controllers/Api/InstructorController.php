@@ -44,7 +44,9 @@ class InstructorController extends Controller
             if($instructor){
                 return response()->json([
                     'status'=> 200,
-                    'message'=> "Instructor added successfully"
+                    'message'=> "Instructor added successfully",
+                    'instructor' => $instructor
+
                     ], 200);
             }else{
                 return response()->json([

@@ -28,8 +28,8 @@ class ScheduleController extends Controller
 
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
-            //create validators for 'subject_id', 'start_time', 'end_time', 'day_of_week'
             'subject_id' => 'required|exists:subjects,id',
+            'instructor_id' => 'required|exists:instructors,id',
             'start_time' => 'required|date_format:H:i',
             'end_time' => 'required|date_format:H:i',
             'day_of_week' => 'required|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday'
@@ -44,6 +44,7 @@ class ScheduleController extends Controller
         }else{
             $schedule = Schedule::create([
                 'subject_id' => $request->subject_id,
+                'instructor_id' => $request->instructor_id,
                 'start_time' => $request->start_time,
                 'end_time' => $request->end_time,
                 'day_of_week' => $request->day_of_week
@@ -62,4 +63,5 @@ class ScheduleController extends Controller
             }
         }
     }
+    
 }

@@ -10,5 +10,5 @@ class Schedule extends Model
     use HasFactory;
 
     protected $table = 'schedules';
-    protected $fillable = ['subject_id', 'start_time', 'end_time', 'day_of_week'];
+    protected $fillable = ['subject_id', 'instructor_id','start_time', 'end_time', 'day_of_week'];
 }
